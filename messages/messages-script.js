@@ -10,4 +10,12 @@ $(document).ready(function() {
         $('#m').val('');
     });
   });
+
+  var input = document.getElementById("m");
+  input.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      document.getElementById("submitBtn").click();
+    }
+  });
 });
