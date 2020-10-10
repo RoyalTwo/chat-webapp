@@ -6,13 +6,20 @@ var mysql = require('mysql');
 var con = mysql.createConnection({
   host: "162.237.71.9",
   user: "remoteroot",
-  password: "remotepass"
+  password: "remotepass",
+  database: "db"
 });
 
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 });
+/*con.query("SELECT * FROM LoginInfo", function (err, result) {
+  if (err) throw err;
+  console.log(result);
+});*/
+
+app.use(require("express").static("main"));
 
 // html for page
 app.get('/', (req, res) => {
@@ -35,19 +42,6 @@ io.on('connection', (socket) => {
 });
 
 // initialize site
-server.listen(8080, () => {
-    console.log('listening on *:8080');
+server.listen(3082, () => {
+    console.log('listening on *:3082');
 });
-
-/*
-
-infObj = {
-
-    uname: Admin,
-    pass: P4$$wd432,
-    token: <16CharValue>,
-
-}
-
-
-*/

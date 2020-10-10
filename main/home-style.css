@@ -1,0 +1,590 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+@font-face {
+    font-family: 'SanFrancisco';
+    src:  url(sanfrancisco.otf);
+}
+
+body, html{
+    margin: 0;
+}
+
+*{
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+*:focus{
+    outline: none;
+}
+
+@media screen and (max-width: 800px) {
+  
+    ::-webkit-scrollbar {
+        width: 10
+        10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(42, 42, 42);
+        border-radius: 0.5rem 0px 0px 0.5rem;
+    }
+
+    .sendBtn{
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 0;
+        background: linear-gradient(90deg, #7F00FF, #E100FF);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 200%;
+        color: white;
+        border: 0px transparent;
+        width: 15%;
+        height: 80%;
+        margin: 0px;
+        padding: 0px;
+        border-radius: 50% !important;
+        transition: all 75ms linear;
+    }
+
+    button{
+        width: 10%;
+        height: auto;
+        float: right;
+        background: red
+    }
+
+    .txtBox{
+        position: relative;
+        bottom: 0;
+        display: block;
+        background: rgb(55, 55, 55);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 200%;
+        color: white;
+        box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25);
+        padding: 0px;
+        padding-right: 10px;
+        border: 0px transparent;
+        flex-grow: 1;
+        height: 10%;
+        margin: 15px 15px;
+        border-radius: 10rem !important;
+    }
+
+    .txtBoxContainer{
+        position: relative;
+        bottom: 0px;
+        height: 82.5%;
+        width: 100%;
+        background: rgb(25, 25, 25);
+        border-radius: 3.5rem 0px 0px 0px;
+    }
+
+    .titleContainer{
+        position: relative;
+        width: 90%;
+        height: 100%;
+        background: linear-gradient(33deg, #E100FF 8%, #7F00FF);
+        border-radius: 0px 5rem 5rem 0px;
+        box-shadow: 0px 0px 15px 0px #b000ff;
+    }
+
+    .title{
+        background: rgb(55, 55, 55);
+        height: 100%;
+        width: 90%;
+        box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25);
+        border-radius: 0px 5rem 5rem 0px
+    }
+
+    .msgBox{
+        z-index: 1;
+        display: inline-flex;
+        position: relative;
+        background: transparent;
+        color: white;
+        height: 100%;
+        border: 0px solid transparent;
+        width: 80%;
+        margin-left: 15px;
+        font-family: SanFrancisco;
+        font-size: 18pt;
+        font-weight: 100;
+    }
+    .msgBox:focus{
+        outline: none !important;
+    }
+
+    .col1 {
+        display: none;
+        margin: 0px;
+        padding: 25px;
+        height: 100vh;
+        float: left;
+        width: 0%;
+    }
+
+    .col2 {
+        margin: 0px;
+        padding: 0px;
+        height: 100vh;
+        float: left;
+        width: 100%;
+    }
+
+    .row:after {
+        margin: 0px;
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .msgContainer{
+        zoom: 0.85;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(55, 55, 55);
+    }
+
+    .contactContainer{
+        zoom: 0.75;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(25, 25, 25);
+        border-radius: 5rem;
+    }
+
+    .outer{
+        position: relative;
+        width: 100%;
+        height: 17.5%;
+        background: rgb(25, 25, 25);
+    }
+
+    .background{
+        margin: 0;
+        padding: 0;
+        position: fixed;
+        max-width: 100vw;
+        max-height: 100vh;
+        min-width: 100vw;
+        min-height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-image: url("back.jpg")
+    }
+
+    .messages{
+        overflow-y: scroll !important;
+        position: relative;
+        background: rgb(25, 25, 25);
+        height: 85%;
+        padding: 5%;
+        padding-bottom: 0px;
+        width: 100%;
+        border-radius: 3.5rem 0px 0px 0px;
+    }
+
+    .messages::after{
+        content: '';
+        position: fixed;
+        width: 97.5%;
+        height: 100%;
+        top: 17.5%;
+        left: 0%;
+        background: linear-gradient(0deg, rgba(25, 25, 25, 0) 80%, rgba(25, 25, 25, 1) 100%);
+        border-radius: 3.5rem 0px 0px 0px;
+        pointer-events: none;
+    }
+
+    .incMessage{
+        display: block;
+        float: left;
+        max-width: 60%;
+        padding: 15px;
+        border-radius: 0px 1.25rem 1.25rem 1.25rem; 
+        height: auto;
+        background: rgb(55, 55, 55);
+        margin-bottom: 15px;
+        box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.25);
+    }
+    .outMessage{
+        display: block;
+        float: right;
+        max-width: 60%;
+        padding: 15px;
+        border-radius: 1.25rem 0px 1.25rem 1.25rem; 
+        height: auto;
+        background: linear-gradient(-33deg, #E100FF 8%, #7F00FF);
+        margin-bottom: 15px;
+        box-shadow: 0px 0px 15px 0px #b000ff;
+    }
+
+    .titleText{
+        height: auto;
+        position: relative;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+    }
+
+    .profName{
+        display: block;
+        color: white;
+        text-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25);
+        font-size: 28pt;
+        font-family: "Comfortaa", cursive;
+    }
+
+    .profStat{
+        display: block;
+        color: rgb(18,228,157);
+        text-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
+        font-family: "Fredoka One", cursive;
+        font-size: 16pt;
+        text-transform: uppercase;
+    }
+    
+    .profPic{
+        position: absolute;
+        top: 50%;
+        right: 30px;
+        transform: translate(-37.5%, -50%);
+        height: 100px;
+        width: 100px;
+        float: right;
+        margin-right: 7.5%;
+        border-radius: 5rem;
+        box-shadow: 0px 0px 2px 3px rgb(18,228,157); /* rgb(18,228,157) ONLINE [=+=] rgb(192,66,78) MUTED [=+=] rgb(255,196,20) AWAY [=+=] rgb*/
+    }
+
+    .content{
+        font-size: 16pt;
+        color: white;
+        font-family: SanFrancisco
+    }
+
+    .sendBtn:active{
+        transform: translate(-100%, -165%) scale(0.95);
+    }
+
+}
+
+/*/////////////////////////////////////////////////////////////////*/
+
+/*/ ***                  NORMAL SCREEN SIZE                   *** /*/
+
+/*/////////////////////////////////////////////////////////////////*/
+
+@media screen and (min-width: 800px) {
+
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: rgb(42, 42, 42);
+        border-radius: 0.5rem;
+    }
+
+    .sendBtn{
+        display: inline;
+        position: relative;
+        top: 50%;
+        left: 100%;
+        transform: translate(-100%, -165%);
+        display: block;
+        background: linear-gradient(90deg, #7F00FF, #E100FF);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 200%;
+        color: white;
+        border: 0px transparent;
+        width: 80px;
+        height: 80px;
+        margin: 0px;
+        margin-right: 5px !important;
+        padding: 0px;
+        border-radius: 50% !important;
+        transition: all 75ms linear;
+    }
+
+    .txtBox{
+        position: relative;
+        bottom: 0;
+        display: block;
+        background: rgb(55, 55, 55);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 200%;
+        color: white;
+        box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25);
+        padding: 0px;
+        padding-right: 10px;
+        border: 0px transparent;
+        flex-grow: 1;
+        height: 60px;
+        margin: 45px;
+        border-radius: 10rem !important;
+    }
+
+    .txtBoxContainer{
+        position: relative;
+        bottom: 0px;
+        height: 90%;
+        width: 100%;
+        background: rgb(25, 25, 25);
+        border-radius: 5rem 0px 0px 0px !important;
+    }
+
+    .titleContainer{
+        position: relative;
+        width: 60%;
+        height: 100%;
+        background: rgb(55, 55, 55);
+        background: linear-gradient(33deg, #E100FF 8%, #7F00FF);
+        border-radius: 0px 5rem 5rem 0px;
+        box-shadow: 0px 0px 10px 0px #b000ff;
+    }
+
+    .title{
+        background: rgb(55, 55, 55);
+        height: 100%;
+        width: 90%;
+        border-radius: 0px 5rem 5rem 0px;
+        box-shadow: 0px 0px 10px 0px #b000ff;
+        box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25);
+    }
+
+    .msgBox{
+        z-index: 1;
+        display: inline-flex;
+        position: relative;
+        background: transparent;
+        color: white;
+        top: 50%;
+        left: 0%;
+        transform: translate(0%, -50%);
+        height: 100%;
+        border: 0px solid transparent;
+        width: 90%;
+        margin-left: 35px;
+        font-family: SanFrancisco;
+        font-size: 24px;
+        font-weight: 100;
+    }
+    .msgBox:focus{
+        outline: none !important;
+    }
+
+    .titleText{
+        height: auto;
+        position: relative;
+        top: 50%;
+        left: 10%;
+        transform: translateY(-50%);
+    }
+
+    .profName{
+        display: block;
+        color: white;
+        text-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25);
+        font-size: 28pt;
+        font-family: "Comfortaa", cursive;
+    }
+
+    .profStat{
+        display: block;
+        color: rgb(18,228,157);
+        text-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
+        font-family: "Fredoka One", cursive;
+        font-size: 15px;
+        text-transform: uppercase;
+    }
+    
+    .profPic{
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(-37.5%, -50%);
+        height: 80px;
+        width: 80px;
+        float: right;
+        margin-right: 10%;
+        border-radius: 5rem;
+        box-shadow: 0px 0px 2px 3px rgb(18,228,157); /* rgb(18,228,157) ONLINE [=+=] rgb(192,66,78) MUTED [=+=] rgb(255,196,20) AWAY [=+=] rgb*/
+    }
+
+    .closeBtn{
+        position: absolute;
+        color: rgb(65, 65, 65);
+        top: 0;
+        right: 0;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 42pt;
+        cursor: pointer;
+        font-weight: 600;
+        user-select: none;
+        transition: color 150ms linear, transform 75ms;
+    }
+
+    .closeBtn:hover{
+        color: white;
+    }
+
+    .closeBtn:active{
+        transform: scale(0.8)
+    }
+
+    .col1 {
+        margin: 0px;
+        padding: 25px;
+        height: 100vh;
+        float: left;
+        width: 20%;
+    }
+
+    .col2 {
+        margin: 0px;
+        padding: 25px;
+        height: 100vh;
+        float: left;
+        width: 80%;
+        background: rgb
+    }
+
+    .row:after {
+        margin: 0px;
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .msgContainer{
+        zoom: 0.85;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(55, 55, 55);
+        border-radius: 4rem;
+    }
+
+    .contactContainer{
+        zoom: 0.75;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(25, 25, 25);
+        border-radius: 5rem;
+    }
+
+    .outer{
+        position: relative;
+        width: 100%;
+        height: 10%;
+        background: rgb(25, 25, 25);
+    }
+
+    .background{
+        margin: 0;
+        padding: 0;
+        position: fixed;
+        max-width: 100vw;
+        max-height: 100vh;
+        min-width: 100vw;
+        min-height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-image: url("back.jpg")
+    }
+
+    .messages{
+        overflow-y: scroll !important;
+        position: relative;
+        background: rgb(25, 25, 25);
+        height: 85%;
+        padding: 50px;
+        padding-bottom: 0px;
+        width: 100%;
+    }
+
+    .messages::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: linear-gradient(0deg, transparent 50%, rgb(25, 25, 25, 0.5) 80%);
+        pointer-events: none;
+    }
+
+
+    .incMessage{
+        display: block;
+        float: left;
+        max-width: 60%;
+        padding: 15px;
+        border-radius: 0px 1.5rem 1.5rem 1.5rem; 
+        height: auto;
+        background: rgb(55, 55, 55);
+        margin-bottom: 15px;
+        box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.25);
+    }
+    .outMessage{
+        display: block;
+        float: right;
+        max-width: 60%;
+        padding: 15px;
+        border-radius: 1.5rem 0px 1.5rem 1.5rem; 
+        height: auto;
+        background: linear-gradient(-33deg, #E100FF 8%, #7F00FF);
+        margin-bottom: 15px;
+        box-shadow: 0px 0px 10px 0px #b000ff;
+    }
+
+    .content{
+        font-size: 14pt;
+        color: white;
+        font-family: SanFrancisco
+    }
+
+    .sendBtn:active{
+        transform: translate(-100%, -165%) scale(0.95);
+    }
+}

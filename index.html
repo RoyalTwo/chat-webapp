@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html>
-  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  
   <head>
     <link href='https://fonts.googleapis.com/css?family=Secular+One' rel='stylesheet'>
     <title>Test Chat</title>
@@ -38,7 +36,6 @@
           });
           socket.on('chat message', function(msg){
             $('#messages').append($('<li>').text(msg));
-              scrollToBottom('body');
           });
         });
       </script>
