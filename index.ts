@@ -19,11 +19,11 @@ con.connect(function(err) {
   console.log(result);
 });*/
 
-app.use(require("express").static("main"));
+app.use(require("express").static("messages"));
 
 // html for page
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/main/home-doc.html');
+    res.sendFile(__dirname + '/messages/messages-doc.html');
 });
 
 // user connection
