@@ -3,11 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Messaging</title>
+    <title>Eris - Messages</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    var socket = io();
+    </script>
     <link href="messages-style.css" rel="stylesheet" type="text/css" />
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
   </head>
   <body>
     <script src="messages-script.js"></script>
@@ -32,56 +35,25 @@
                 </div>  
                 <div class="txtBoxContainer">
                     <div class="messages">
-                      
-                        <div class="incMessage">
-                            <span class="content">Hello World! This is a test message.</span>
+                        <div class="msgwrapper">
+                            <div class="incMessage">
+                                <span class="content">Hello World! This is a test message.</span>
+                            </div>
                         </div>
-                        <div class="outMessage">
-                            <span class="content">Woah guys, that's not nice!</span>
+                        <div class="msgwrapper">
+                            <div class="outMessage">
+                                <span class="content">Woah guys, that's not nice!</span>
+                            </div>
                         </div>
-                        <div class="incMessage">
-                            <span class="content">This is a sample messageasdfdfasdfdaf</span>
+                        <div class="msgwrapper">
+                            <div class="incMessage">
+                                <span class="content">This is a sample messageasdfdfasdfdaf</span>
+                            </div>
                         </div>
-                        <div class="incMessage">
-                            <span class="content">OMG, yet another sample message. Will they ever stop?</span>
-                        </div>
-                        <div class="outMessage">
-                            <span class="content">You should really be more careful speaking like that!</span>
-                        </div>
-                        <div class="incMessage">
-                            <span class="content">Hello World! This is a test message.</span>
-                        </div>
-                        <div class="outMessage">
-                            <span class="content">Woah guys, that's not nice!</span>
-                        </div>
-                        <div class="incMessage">
-                            <span class="content">This is a sample messageasdfasfasfasdfas</span>
-                        </div>
-                        <div class="incMessage">
-                            <span class="content">OMG, yet another sample message. Will they ever stop?</span>
-                        </div>
-                        <div class="outMessage">
-                            <span class="content">You should really be more careful speaking like that!</span>
-                        </div>
-                        <div class="incMessage">
-                            <span class="content">Hello World! This is a test message.</span>
-                        </div>
-                        <div class="outMessage">
-                            <span class="content">Woah guys, that's not nice!</span>
-                        </div>
-                        <div class="incMessage">
-                            <span class="content">This is a sample messageasdfasdfasdfff</span>
-                        </div>
-                        <div class="incMessage">
-                            <span class="content">OMG, yet another sample message. Will they ever stop?</span>
-                        </div>
-                        <div class="outMessage">
-                            <span class="content">You should really be more careful speaking like that!</span>
-                        </div> --> 
                     </div>
                     <div class="txtBox">
-                        <input class="msgBox" placeholder="Type here..." id="m" type="text"></input>
-                        <button id="submitBtn"></button>
+                        <input class="msgBox" placeholder="Type here..." required></input>
+                        <button class="sendBtn"><i class="sendIco material-icons-round" id="submitBtn">send</i></button>
                     </div>
                 </div>
             </div>

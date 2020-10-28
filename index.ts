@@ -12,33 +12,41 @@ var con = mysql.createConnection({
 
 con.connect(function(err) {
   if (err) throw err;
-  console.log("Connected!");
+  console.log("SQL Connected.");
 });
-/*con.query("SELECT * FROM LoginInfo", function (err, result) {
-  if (err) throw err;
+con.query("SELECT * FROM LoginInfo", function(err, result) {
   console.log(result);
-});*/
+});
 
 app.use(require("express").static("messages"));
+app.use(require("express").static("login"));
 
 // html for page
 app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/login/login-doc.html');
+});
+app.get('/messages', (req, res) => {
     res.sendFile(__dirname + '/messages/messages-doc.html');
+});
+
+app.post('/', (req, res) => {
+  res.redirect('/messages');
 });
 
 // user connection
 io.on('connection', (socket) => {
-    console.log('a user connected');
+    console.log('User Connected.');
     socket.on("userinfo", (infObj) => {
-
+        //temp function shut it
     })
-});
 
-// display message to all on server
-io.on('connection', (socket) => {
-    socket.on('chat message', (msg) => {
-        io.emit('chat message', msg);
-    });
+    socket.on('sendMessage', function(data) {
+		// we tell the client to execute 'new message'
+		socket.broadcast.emit('recieveMessage', {
+			username: data.username,
+			message: data.message
+		});
+	});
 });
 
 // initialize site

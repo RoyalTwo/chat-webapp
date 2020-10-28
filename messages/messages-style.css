@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
@@ -38,29 +39,45 @@ body, html{
     }
 
     .sendBtn{
-        position: relative;
+        display: inline-block;
+        position: absolute;
         top: 50%;
-        transform: translateY(-50%);
         right: 0;
+        padding: 0;
+        transform: translateY(-50%);
+        margin-right: 1.5%;
         background: linear-gradient(90deg, #7F00FF, #E100FF);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 200%;
+        box-shadow: 0px 0px 10px 0px #b000ff;
         color: white;
-        border: 0px transparent;
-        width: 15%;
-        height: 80%;
-        margin: 0px;
-        padding: 0px;
-        border-radius: 50% !important;
-        transition: all 75ms linear;
+        text-align: center;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: 0px solid transparent;
     }
 
-    button{
-        width: 10%;
-        height: auto;
-        float: right;
-        background: red
+    .sendBtn .ripple{
+        background: rgba(255, 255, 255, 0.3);
+        position: absolute;
+        transform: scale(0);
+        animation: ripple 1s;
+    }
+
+    @keyframes ripple {
+        100%{
+            transform: scale(2);
+            opacity: 0;
+        }
+    }
+
+    .sendIco{
+        position: relative;
+        left: 2px;
+        padding: 0;
+        padding-top: 2px;
+        font-size: 20pt;
+        font-weight: 800;
+        vertical-align: center;
     }
 
     .txtBox{
@@ -85,25 +102,23 @@ body, html{
     .txtBoxContainer{
         position: relative;
         bottom: 0px;
-        height: 82.5%;
+        height: 85%;
         width: 100%;
         background: rgb(25, 25, 25);
-        border-radius: 3.5rem 0px 0px 0px;
     }
 
     .titleContainer{
         position: relative;
-        width: 90%;
+        width: 80%;
         height: 100%;
-        background: linear-gradient(33deg, #E100FF 8%, #7F00FF);
+        background: rgb(55, 55, 55);
         border-radius: 0px 5rem 5rem 0px;
-        box-shadow: 0px 0px 15px 0px #b000ff;
     }
 
     .title{
-        background: rgb(55, 55, 55);
+        background: transparent;
         height: 100%;
-        width: 90%;
+        width: 100%;
         box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25);
         border-radius: 0px 5rem 5rem 0px
     }
@@ -116,7 +131,7 @@ body, html{
         color: white;
         height: 100%;
         border: 0px solid transparent;
-        width: 80%;
+        width: 85%;
         margin-left: 15px;
         font-family: SanFrancisco;
         font-size: 18pt;
@@ -133,6 +148,7 @@ body, html{
         height: 100vh;
         float: left;
         width: 0%;
+        box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25);
     }
 
     .col2 {
@@ -172,7 +188,7 @@ body, html{
     .outer{
         position: relative;
         width: 100%;
-        height: 17.5%;
+        height: 15%;
         background: rgb(25, 25, 25);
     }
 
@@ -199,21 +215,21 @@ body, html{
         position: relative;
         background: rgb(25, 25, 25);
         height: 85%;
-        padding: 5%;
-        padding-bottom: 0px;
+        padding-top: 30px;
+        padding-right: 25px;
+        padding-left: 25px;
+        border-radius: 0;
         width: 100%;
-        border-radius: 3.5rem 0px 0px 0px;
     }
 
     .messages::after{
         content: '';
         position: fixed;
-        width: 97.5%;
+        width: 100%;
         height: 100%;
-        top: 17.5%;
+        top: 15%;
         left: 0%;
         background: linear-gradient(0deg, rgba(25, 25, 25, 0) 80%, rgba(25, 25, 25, 1) 100%);
-        border-radius: 3.5rem 0px 0px 0px;
         pointer-events: none;
     }
 
@@ -225,7 +241,6 @@ body, html{
         border-radius: 0px 1.25rem 1.25rem 1.25rem; 
         height: auto;
         background: rgb(55, 55, 55);
-        margin-bottom: 15px;
         box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.25);
     }
     .outMessage{
@@ -236,7 +251,6 @@ body, html{
         border-radius: 1.25rem 0px 1.25rem 1.25rem; 
         height: auto;
         background: linear-gradient(-33deg, #E100FF 8%, #7F00FF);
-        margin-bottom: 15px;
         box-shadow: 0px 0px 15px 0px #b000ff;
     }
 
@@ -252,7 +266,7 @@ body, html{
         display: block;
         color: white;
         text-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25);
-        font-size: 28pt;
+        font-size: 26pt;
         font-family: "Comfortaa", cursive;
     }
 
@@ -268,32 +282,75 @@ body, html{
     .profPic{
         position: absolute;
         top: 50%;
-        right: 30px;
+        right: 0 !important;
         transform: translate(-37.5%, -50%);
-        height: 100px;
-        width: 100px;
+        height: 85px;
+        width: 85px;
         float: right;
-        margin-right: 7.5%;
+        margin-right: -15px;
         border-radius: 5rem;
         box-shadow: 0px 0px 2px 3px rgb(18,228,157); /* rgb(18,228,157) ONLINE [=+=] rgb(192,66,78) MUTED [=+=] rgb(255,196,20) AWAY [=+=] rgb*/
     }
 
     .content{
-        font-size: 16pt;
+        font-size: 15pt;
         color: white;
         font-family: SanFrancisco
     }
 
-    .sendBtn:active{
-        transform: translate(-100%, -165%) scale(0.95);
+    .closeBtn{
+        position: absolute;
+        color: rgb(65, 65, 65);
+        top: 0;
+        right: 0;
+        margin-right: 1%;
+        margin-top: 1%;
+        font-size: 30pt;
+        cursor: pointer;
+        font-weight: 600;
+        user-select: none;
+        transition: color 150ms linear, transform 75ms;
+        z-index: 100
+    }
+
+    .closeBtn:hover{
+        color: white;
+    }
+
+    .closeBtn:active{
+        transform: scale(0.8)
+    }
+
+    .msgwrapper{
+        display: block;
+        width: 100%;
+        padding: 12px 12px;
     }
 
 }
 
 /*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
 
 /*/ ***                  NORMAL SCREEN SIZE                   *** /*/
 
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////*/
 /*/////////////////////////////////////////////////////////////////*/
 
 @media screen and (min-width: 800px) {
@@ -314,30 +371,26 @@ body, html{
     }
 
     .sendBtn{
-        display: inline;
-        position: relative;
+        display: inline-block;
+        position: absolute;
         top: 50%;
-        left: 100%;
-        transform: translate(-100%, -165%);
-        display: block;
+        right: 0;
+        padding: 0;
+        transform: translateY(-50%);
+        margin-right: .3%;
         background: linear-gradient(90deg, #7F00FF, #E100FF);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 200%;
+        box-shadow: 0px 0px 10px 0px #b000ff;
         color: white;
-        border: 0px transparent;
-        width: 80px;
-        height: 80px;
-        margin: 0px;
-        margin-right: 5px !important;
-        padding: 0px;
-        border-radius: 50% !important;
-        transition: all 75ms linear;
+        text-align: center;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: 0px solid transparent;
     }
 
     .txtBox{
         position: relative;
-        bottom: 0;
+        bottom: 5px;
         display: block;
         background: rgb(55, 55, 55);
         background-repeat: no-repeat;
@@ -350,7 +403,7 @@ body, html{
         border: 0px transparent;
         flex-grow: 1;
         height: 60px;
-        margin: 45px;
+        margin: 2%;
         border-radius: 10rem !important;
     }
 
@@ -360,7 +413,7 @@ body, html{
         height: 90%;
         width: 100%;
         background: rgb(25, 25, 25);
-        border-radius: 5rem 0px 0px 0px !important;
+        border-radius: 3rem 0px 0px 0px !important;
     }
 
     .titleContainer{
@@ -391,12 +444,12 @@ body, html{
         top: 50%;
         left: 0%;
         transform: translate(0%, -50%);
-        height: 100%;
+        height: 90%;
         border: 0px solid transparent;
-        width: 90%;
+        width: 85%;
         margin-left: 35px;
         font-family: SanFrancisco;
-        font-size: 24px;
+        font-size: 20pt;
         font-weight: 100;
     }
     .msgBox:focus{
@@ -407,7 +460,7 @@ body, html{
         height: auto;
         position: relative;
         top: 50%;
-        left: 10%;
+        left: 5%;
         transform: translateY(-50%);
     }
 
@@ -415,7 +468,7 @@ body, html{
         display: block;
         color: white;
         text-shadow: 0px 0px 15px 0px rgba(0,0,0,0.25);
-        font-size: 28pt;
+        font-size: 25pt;
         font-family: "Comfortaa", cursive;
     }
 
@@ -424,7 +477,7 @@ body, html{
         color: rgb(18,228,157);
         text-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
         font-family: "Fredoka One", cursive;
-        font-size: 15px;
+        font-size: 12pt;
         text-transform: uppercase;
     }
     
@@ -433,10 +486,10 @@ body, html{
         top: 50%;
         right: 0;
         transform: translate(-37.5%, -50%);
-        height: 80px;
-        width: 80px;
+        height: 75px;
+        width: 75px;
         float: right;
-        margin-right: 10%;
+        margin-right: 13%;
         border-radius: 5rem;
         box-shadow: 0px 0px 2px 3px rgb(18,228,157); /* rgb(18,228,157) ONLINE [=+=] rgb(192,66,78) MUTED [=+=] rgb(255,196,20) AWAY [=+=] rgb*/
     }
@@ -446,9 +499,9 @@ body, html{
         color: rgb(65, 65, 65);
         top: 0;
         right: 0;
-        margin-right: 3%;
+        margin-right: 4%;
         margin-top: 2%;
-        font-size: 42pt;
+        font-size: 30pt;
         cursor: pointer;
         font-weight: 600;
         user-select: none;
@@ -468,7 +521,8 @@ body, html{
         padding: 25px;
         height: 100vh;
         float: left;
-        width: 20%;
+        width: 18%;
+        
     }
 
     .col2 {
@@ -476,8 +530,9 @@ body, html{
         padding: 25px;
         height: 100vh;
         float: left;
-        width: 80%;
-        background: rgb
+        width: 82%;
+        background: rgb;
+        
     }
 
     .row:after {
@@ -494,7 +549,8 @@ body, html{
         margin: 0;
         padding: 0;
         background-color: rgb(55, 55, 55);
-        border-radius: 4rem;
+        border-radius: 3rem;
+        box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
     }
 
     .contactContainer{
@@ -504,7 +560,8 @@ body, html{
         margin: 0;
         padding: 0;
         background-color: rgb(25, 25, 25);
-        border-radius: 5rem;
+        border-radius: 3rem;
+        box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.75);
     }
 
     .outer{
@@ -557,33 +614,72 @@ body, html{
     .incMessage{
         display: block;
         float: left;
-        max-width: 60%;
+        max-width: 90%;
         padding: 15px;
         border-radius: 0px 1.5rem 1.5rem 1.5rem; 
         height: auto;
         background: rgb(55, 55, 55);
-        margin-bottom: 15px;
+        margin-bottom: 5px;
+        margin-left:5px;
         box-shadow: 0px 0px 25px 0px rgba(0,0,0,0.25);
     }
     .outMessage{
         display: block;
         float: right;
-        max-width: 100%;
+        max-width: 90%;
         padding: 15px;
         border-radius: 1.5rem 0px 1.5rem 1.5rem; 
         height: auto;
         background: linear-gradient(-33deg, #E100FF 8%, #7F00FF);
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         box-shadow: 0px 0px 10px 0px #b000ff;
+        margin-right: 5px;
+        
+    }
+
+    .sendBtn{
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+        padding: 0;
+        transform: translateY(-50%);
+        margin-right: .5%;
+        background: linear-gradient(90deg, #7F00FF, #E100FF);
+        box-shadow: 0px 0px 10px 0px #b000ff;
+        color: white;
+        text-align: center;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: 0px solid transparent;
     }
 
     .content{
-        font-size: 16pt;
+        font-size: 15pt;
         color: white;
-        font-family: SanFrancisco
+        font-family: SanFrancisco;
     }
 
-    .sendBtn:active{
-        transform: translate(-100%, -165%) scale(0.95);
+    .sendIco{
+        position: relative;
+        left: 2px;
+        padding: 0;
+        padding-top: 2px;
+        font-size: 20pt;
+        font-weight: 800;
+        vertical-align: center;
     }
+
+    .msgwrapper{
+        display: block;
+        width: 100%;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    
+    ::selection {
+    background-color: #69cbf8;
+    color: rgb(255, 255, 255);
+}
 }
