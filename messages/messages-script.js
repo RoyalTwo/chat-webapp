@@ -1,7 +1,5 @@
 $(document).ready(function() {
-
-    uname = prompt("username")
-
+  uname = prompt("Password: ", "Insert Password");
     function notaFunCTIOn(){
         $('.messages').append('<div class="msgwrapper"><div class="outMessage"><span class="content">' + $(".msgBox").val() + '</span></div></div>');
         socket.emit("sendMessage", {
@@ -11,7 +9,7 @@ $(document).ready(function() {
 
         $(".msgBox").val("")
 
-        $(".messages").scrollTop($(".messages").prop("scrollHeight"));
+        $(".messages").scrollBottom($(".messages").prop("scrollHeight"));
     }
 
     socket.on('recieveMessage', (data) => {
@@ -31,7 +29,7 @@ $(document).ready(function() {
 
     $(".msgBox").keypress((e) => {
         if (e.which == 13 ) {
-            domsOeStuff()
+            notaFunCTIOn()
         }
     })    
 

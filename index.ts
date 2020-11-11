@@ -22,11 +22,17 @@ app.use(require("express").static("messages"));
 app.use(require("express").static("login"));
 
 // html for page
-app.get('/', (req, res) => {
+app.get('/login', (req, res) => {
     res.sendFile(__dirname + '/login/login-doc.html');
+});
+app.get('/', (req, res) => {
+  res.redirect('/login');
 });
 app.get('/messages', (req, res) => {
     res.sendFile(__dirname + '/messages/messages-doc.html');
+});
+app.post('/login', (req, res) => {
+  res.redirect('/messages');
 });
 
 app.post('/', (req, res) => {

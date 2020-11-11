@@ -1,12 +1,413 @@
-html{
-    padding: 0;
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-    background-image: url("back.svg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+@font-face {
+    font-family: "San-Francisco";
+    src: url("sanfrancisco.otf")
+}
+@font-face {
+    font-family: "Scritus";
+    src: url("scritus.otf")
 }
 
-.submitBtn
+*{
+    transition: all 150ms;
+}
+
+:root{
+    --color-1: rgb(255, 165, 0);
+    --color-2: rgb(255, 0, 66);
+    --color-3: magenta;
+    --color-4: blueviolet;
+    --color-5: rgb(255, 83, 33);
+}
+
+h1{
+    color: white;
+    font-size: 30pt;
+    letter-spacing: -1px;
+}
+
+html{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+body{
+    min-height: 100vh;
+    min-width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-image: url("bg.svg");
+    background-size: auto 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+}
+
+.logo{
+    position: absolute;
+    left: 50%;
+    top: 7.5%;
+    transform: translateX(-50%);
+    width: 300px
+}
+
+.mid{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 90%;
+    width: 100%;
+
+}
+
+.password{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 55%;
+    width: 65%;
+}
+
+.username{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 35%;
+    left: 55%;
+    width: 65%;
+}
+
+.label{
+    position: relative;
+    left: 0;
+    color: #e6e6e6;
+    font-size: 12pt;
+    font-weight: 200;
+    font-family: "San-Francisco";
+    text-transform: uppercase;
+}
+
+.uname{
+    color: white;
+    width: 100%;
+}
+
+.uname:focus{
+    background: transparent;
+    font-family: "San-Francisco";
+    color: white;
+    border: none;
+    border-bottom: 2px solid var(--color-5);
+    padding: 5px 0px;
+    border-radius: 0px !important;
+}
+
+.passwd{
+    color: white;
+    width: 100%;
+}
+.passwd:focus{
+    background: transparent;
+    font-family: "San-Francisco";
+    color: white;
+    border: none;
+    border-bottom: 2px solid var(--color-5);
+    padding: 5px 0px;
+    border-radius: 0px !important;
+}
+
+.container-left{
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+}
+.ulabel, .plabel{
+    transition: all 100ms linear;
+}
+
+.signup{
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.container-right{
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    font-family: "San-Francisco";
+    text-align: center;
+    color: white;
+}
+
+h3{
+    font-weight: 400;
+    color: rgb(200, 200, 200)
+}
+
+.text-container{
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+}
+
+button{
+    position: absolute;
+    top: 75%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(90deg, rgb(255, 165, 0), rgb(255, 0, 66));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    color: white;
+    font-family: "San-Francisco";
+    font-size: 16pt;
+    font-weight: 300;
+    padding: 0px 15px;
+    width: 30%;
+    height: 50px;
+    border: solid;
+    border-image: linear-gradient(90deg, rgb(255, 165, 0), rgb(255, 0, 66));
+    border-width: 4px;
+    border-image-slice: 1;
+}
+
+button::after{
+    z-index: 2;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: transparent;
+    color: white;
+    font-family: "San-Francisco";
+    font-size: 16pt;
+    font-weight: 300;
+    width: 100%;
+    height: 100%;
+    border: solid;
+    border-image: linear-gradient(90deg, rgb(255, 165, 0), rgb(255, 0, 66));
+    border-width: 4px;
+    border-image-slice: 1;
+    filter: blur(2.5px)
+}
+
+button:focus{
+    outline: none;
+}
+
+.outer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    border: solid;
+    background-image: linear-gradient(180deg, rgba(255,0,255,0.05) 0%, rgba(197,22,241,0.005) 47.5%, rgba(197,22,241,0.005) 50%, rgba(197,22,241,0.005) 52.5%, rgba(138,43,226,0.05) 100%);
+    border-width: 4px 0px 4px 0px;
+    border-image:  linear-gradient(-80deg, magenta, blueviolet);
+    border-image-slice: 1;
+    animation: loaded ease 1.5s;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+}
+
+.outer::after{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    border: solid;
+    filter: blur(10px);
+    background-image: linear-gradient(180deg, rgba(255,0,255,0.05) 0%, rgba(138,43,226,0.05) 100%);
+    border-width: 4px 0px 4px 0px;
+    border-image:  linear-gradient(-80deg, magenta, blueviolet);
+    border-image-slice: 1;
+}
+
+@keyframes loaded{
+    0%{
+        height: 0;
+        width: 0;
+        top: 50%;
+        left: 50%;
+    }
+    50%{
+        height: 0;
+        width: 50vw;
+        top: 50%;
+        left: 50%;
+    }
+    100%{
+        top: 50%;
+        left: 50%;
+        width: 50vw;
+        height: calc(80vh - 8px);
+    }
+}
+
+@keyframes unloaded{
+    100%{
+        height: 0;
+        width: 0;
+        top: 50%;
+        left: 50%;
+    }
+    50%{
+        height: 0;
+        width: 50vw;
+        top: 50%;
+        left: 50%;
+    }
+    0%{
+        top: 50%;
+        left: 50%;
+        width: 50vw;
+        height: calc(80vh - 8px);
+    }
+}
+
+/* El Uno Bruh Momento */
+
+.waves-effect {
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  vertical-align: middle;
+  z-index: 1;
+  -webkit-transition: .3s ease-out;
+  transition: .3s ease-out;
+}
+
+.waves-effect .waves-ripple {
+  position: absolute;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  opacity: 0;
+  background: rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
+  -webkit-transition-property: opacity, -webkit-transform;
+  transition-property: opacity, -webkit-transform;
+  transition-property: transform, opacity;
+  transition-property: transform, opacity, -webkit-transform;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  pointer-events: none;
+}
+
+input{
+    font-size: 18pt;
+    background: transparent;
+    font-family: "San-Francisco";
+    color: white;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    padding: 5px 0px;
+    border-radius: 0px !important;
+    transition: 250ms;
+}
+
+input:focus{
+    outline: none;
+    border: none;
+}
+
+.waves-effect.waves-light .waves-ripple {
+  background-color: rgba(255, 255, 255, 0.45);
+}
+
+.waves-effect.waves-red .waves-ripple {
+  background-color: rgba(244, 67, 54, 0.7);
+}
+
+.waves-effect.waves-yellow .waves-ripple {
+  background-color: rgba(255, 235, 59, 0.7);
+}
+
+.waves-effect.waves-orange .waves-ripple {
+  background-color: rgba(255, 152, 0, 0.7);
+}
+
+.waves-effect.waves-purple .waves-ripple {
+  background-color: rgba(156, 39, 176, 0.7);
+}
+
+.waves-effect.waves-green .waves-ripple {
+  background-color: rgba(76, 175, 80, 0.7);
+}
+
+.waves-effect.waves-teal .waves-ripple {
+  background-color: rgba(0, 150, 136, 0.7);
+}
+
+.waves-effect input[type="button"], .waves-effect input[type="reset"], .waves-effect input[type="submit"] {
+  border: 0;
+  font-style: normal;
+  font-size: inherit;
+  text-transform: inherit;
+  background: none;
+}
+
+.waves-effect img {
+  position: relative;
+  z-index: -1;
+}
+
+.waves-notransition {
+  -webkit-transition: none !important;
+  transition: none !important;
+}
+
+.waves-circle {
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+}
+
+.waves-input-wrapper {
+  border-radius: 0px;
+  vertical-align: bottom;
+}
+
+.waves-input-wrapper .waves-button-input {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.waves-circle {
+  text-align: center;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  border-radius: 50%;
+  -webkit-mask-image: none;
+}
+
+.waves-block {
+  display: block;
+}
