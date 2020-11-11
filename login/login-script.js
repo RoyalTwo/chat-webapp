@@ -10,12 +10,17 @@ $(document).ready(() => {
     }, 3000);
 
     $(".login").click(() => {
-        $(".outer").css("animation", "unloaded ease 1.5s")
-        $(".outer").css("animation", "unloaded ease 1.5s")
-        $(".logo").css("filter", "opacity(0)")
-        $(".container-left").css("filter", "opacity(0)")
-        $(".container-right").css("filter", "opacity(0)")
-        
+        setTimeout(() => {
+            $(".outer").css("animation", "unloaded ease 1.5s")
+            $(".outer").css("animation", "unloaded ease 1.5s")
+            $(".logo").css("filter", "opacity(0)")
+            $(".container-left").css("filter", "opacity(0)")
+            $(".container-right").css("filter", "opacity(0)")
+        }, 500)
+
+        setTimeout(() => {
+            window.location.replace("http://chat-webapp.royaltwo.repl.co/messages");
+        }, 2700)     
     })
 
     $(".uname").on("input", () => {
