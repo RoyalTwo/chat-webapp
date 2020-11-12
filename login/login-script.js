@@ -10,9 +10,14 @@ $(document).ready(() => {
     }, 3000);
 
     $(".login").click(() => {
-        setTimeout(() => {
-            $(".outer").css("animation", "unloaded ease 1.5s")
-            $(".outer").css("animation", "unloaded ease 1.5s")
+      uname = $('.uname').val();
+      pass = $('.passwd').val();
+      $.post("/logininfo", function(result){
+        alert(result);
+      })
+            setTimeout(() => {
+            $(".outer").css("animation", "unloaded ease 1s")
+            $(".outer").css("animation", "unloaded ease 1s")
             $(".logo").css("filter", "opacity(0)")
             $(".container-left").css("filter", "opacity(0)")
             $(".container-right").css("filter", "opacity(0)")

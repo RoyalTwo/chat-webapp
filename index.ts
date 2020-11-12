@@ -39,6 +39,9 @@ app.post('/', (req, res) => {
   res.redirect('/messages');
 });
 
+app.post('/logininfo', (req, res) => {
+});
+
 // user connection
 io.on('connection', (socket) => {
     console.log('User Connected.');
